@@ -9,3 +9,9 @@
     background-color:green;
   
 }
+
+.menuitems{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}

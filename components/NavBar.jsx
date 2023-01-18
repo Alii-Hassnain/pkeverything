@@ -71,7 +71,7 @@ function NavBar() {
      const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className={`${styles.container} flexBetween`}>
-      <div className>
+      <div className={styles.menuitems}>
         <Link href="/">
           <div
             className
