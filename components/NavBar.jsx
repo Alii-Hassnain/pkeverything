@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/Navbar.module.css";
 import { useMediaQuery } from "react-responsive";
+import images from '../assets'
 
 const MenuItems = ({ isMobile, active, setActive }) => {
   const generateLink = (i) => {
@@ -70,29 +71,22 @@ function NavBar() {
      const router = useRouter();
      const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className={`${styles.container} flexBetween`}>
-      <div className={styles.menuitems}>
+    <nav className=''>
+      <div className=''>
         <Link href="/">
-          <div
-            className
-            onClick={() => {}}
-          >
-            <Image  width={32} height={32} alt="logo" />
+          <div className onClick={() => {}}>
+            <Image src={images.logo02} width={32} height={32} alt="logo" />
             <p className="text-color font-semibold text-lg ml-1">BijliWala</p>
           </div>
         </Link>
         <Link href="/">
-          <div className="hidden md:flex" onClick={() => {}}>
-            <Image
-              width={32}
-              height={32}
-              alt="logo"
-            />
+          <div className="mobilelogo" onClick={() => {}}>
+            <Image src={images.logo02} width={32} height={32} alt="logo" />
           </div>
         </Link>
       </div>
-      <div className="flex flex-initial flex-row justify-end">
-        <div className="flex items-center mr-2">
+      <div className={styles.menuitems}>
+        <div className={styles.menuitems}>
           <input
             type="checkbox"
             className="checkbox"
@@ -107,6 +101,7 @@ function NavBar() {
           >
             <i className="fas fa-sun" />
             <i className="fas fa-moon" />
+            <i class="fa-duotone fa-dragon"></i>
             <div className="w-3 h-3 absolute bg-white rounded-full ball" />
           </label>
         </div>
@@ -125,18 +120,15 @@ function NavBar() {
             width={20}
             height={20}
             alt="Close"
-           
             onClick={() => {
               setIsOpen(false);
             }}
           />
         ) : (
           <Image
-            
             width={25}
             height={25}
             alt="menu"
-            
             onClick={() => {
               setIsOpen(true);
             }}
