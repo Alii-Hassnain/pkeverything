@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import { Banner } from '../components';
+import { Banner, CreatorCard } from '../components';
 import images from '../assets';
-import { makeId } from '../utils/makeId';
+import { frequentActions } from '../data';
 
 const Home = () => {
   const [hideButtons, setHideButtons] = useState(false);
@@ -20,6 +20,7 @@ const Home = () => {
       current.scrollLeft += scrollAmount;
     }
   };
+
   const isScrollable = () => {
     const { current } = scrollRef;
     const { current: parent } = parentRef;
@@ -45,21 +46,15 @@ const Home = () => {
           styles="justify-start mb-6 h-50 sm:h-50 p-12 xs:p-4 xs:h-44 rounded-3xl"
         />
         <div>
-          <h1 className="font-poppins text-color text-2xl minlg:text-4xl font-semibold ml-4 sx:ml-0">
-            Services
-          </h1>
-          {/* <div className="relative flex-1 max-w-full flex mt-3" ref={parentRef}>
+          <div className="relative flex-1 justify-center max-w-full flex mt-3" ref={parentRef}>
             <div
-              className="flex flex-row w-max overflow-x-scroll no-scrollbar select-none"
+              className="flex flex-row w-max overflow-x-scroll no-scrollbar"
               ref={scrollRef}
             >
-              {[1, 2, 3, 4, 5].map((i) => (
+              {Object.keys(frequentActions).map((key) => (
                 <CreatorCard
-                  key={`creator-card-${i}`}
-                  rank={i}
-                  creatorImage={images[`creator${i}`]}
-                  creatorName={`0x${makeId(3)}...${makeId(4)}`}
-                  creatorEths={10 - i * 0.5}
+                  key={key}
+                  element={frequentActions[key]}
                 />
               ))}
               {!hideButtons && (
@@ -87,7 +82,7 @@ const Home = () => {
                 </>
               )}
             </div>
-          </div> */}
+          </div>
         </div>
         {/* SignalCard */}
         <div className="mt-10">

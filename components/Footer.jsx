@@ -28,9 +28,7 @@ const Footer = () => {
         <div className="flexStart flex-1 flex-col">
           <div className="flexCenter cursor-pointer">
             <Image src={images.logo02} width={32} height={32} alt="logo" />
-            <p className="text-color font-semibold text-lg ml-1">
-              BIJLI WALA
-            </p>
+            <p className="text-color font-semibold text-lg ml-1">BIJLI WALA</p>
           </div>
           <p className="font-poppins text-color font-semibold text-base mt-6">
             Subscribe The News letter and Get The Latest News and notification
@@ -52,8 +50,14 @@ const Footer = () => {
         <div className="flex flex-1 flexBetweenStart flex-wrap ml-10 md:ml-0 md:mt-8">
           <FooterLinks
             heading="Services"
-            items={['Consumer Corner', 'Employer Corner', 'Tender & Contracts', 'Important Links']}
+            items={[
+              'Consumer Corner',
+              'Employer Corner',
+              'Tender & Contracts',
+              'Important Links',
+            ]}
           />
+
           <FooterLinks
             heading="Support"
             items={[
@@ -61,6 +65,21 @@ const Footer = () => {
               'Legal',
               'Privacy Policy',
               'Contact Us',
+            ]}
+          />
+        </div>
+        <div className="flex flex-1 flexBetweenStart flex-wrap ml-10 md:ml-0 md:mt-8">
+          <FooterLinks
+            heading="Important Links"
+            items={[
+              'NEPRA',
+              'MINISTRY OF ENERGY',
+              'CPPA-G',
+              'PPMC',
+              'DISCOS',
+              'K-ELECTRIC',
+              'Aedb',
+              'Neeca',
             ]}
           />
         </div>
@@ -77,10 +96,7 @@ const Footer = () => {
               images.instagram,
               images.telegram,
             ].map((image, index) => (
-              <div
-                className="mx-2 cursor-pointer"
-                key={index}
-              >
+              <div className="mx-2 cursor-pointer" key={index}>
                 <Image
                   src={image}
                   width={20}

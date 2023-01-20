@@ -66,9 +66,7 @@ const Navbar = () => {
             onClick={() => {}}
           >
             <Image src={images.logo02} width={32} height={32} alt="logo" />
-            <p className="text-color font-semibold text-lg ml-1">
-              BijliWala
-            </p>
+            <p className="text-color font-semibold text-lg ml-1">BijliWala</p>
           </div>
         </Link>
         <Link href="/">
@@ -103,7 +101,10 @@ const Navbar = () => {
           </label>
         </div>
         <div className="md:hidden flex">
-          <MenuItems active={active} setActive={setActive} />
+          {/* <MenuItems active={active} setActive={setActive} /> */}
+          <div className="w-9 p-2 flexCenter ml-3 bg-w-grey-1 dark:bg-w-dark  rounded-3xl">
+            <i className="fas fa-bell" />
+          </div>
           <div className="ml-4">
             <ButtonGroup setActive={setActive} router={router} />
           </div>
