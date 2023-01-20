@@ -7,38 +7,38 @@ import Link from 'next/link';
 import images from '../assets';
 import Button from './Button';
 
-const MenuItems = ({ isMobile, active, setActive }) => {
-  const generateLink = (i) => {
-    switch (i) {
-      case 0: return '/';
-      case 1: return '/nfts/create';
-      case 2: return '/nfts/detail';
-      default: return '/';
-    }
-  };
+// const MenuItems = ({ isMobile, active, setActive }) => {
+//   const generateLink = (i) => {
+//     switch (i) {
+//       case 0: return '/';
+//       case 1: return '/nfts/create';
+//       case 2: return '/nfts/detail';
+//       default: return '/';
+//     }
+//   };
 
-  return (
-    <ul
-      className={`list-none flexCenter flex-row ${
-        isMobile && 'flex-col h-full'
-      }`}
-    >
-      {['Home', 'Listed NFTs', 'My NFTs'].map((item, i) => (
-        <li
-          key={i}
-          onClick={() => {
-            setActive(item);
-          }}
-          className={`flex flex-row items-center font-poppins font-semibold text-base dark:hover:text-white hover:text-w-dark mx-3  transition-all ${active === item
-            ? 'text-color'
-            : 'dark:text-w-grey-3 text-w-grey-2'} `}
-        >
-          <Link href={generateLink(i)}>{item}</Link>
-        </li>
-      ))}
-    </ul>
-  );
-};
+//   return (
+//     <ul
+//       className={`list-none flexCenter flex-row ${
+//         isMobile && 'flex-col h-full'
+//       }`}
+//     >
+//       {['Home', 'Listed NFTs', 'My NFTs'].map((item, i) => (
+//         <li
+//           key={i}
+//           onClick={() => {
+//             setActive(item);
+//           }}
+//           className={`flex flex-row items-center font-poppins font-semibold text-base dark:hover:text-white hover:text-w-dark mx-3  transition-all ${active === item
+//             ? 'text-color'
+//             : 'dark:text-w-grey-3 text-w-grey-2'} `}
+//         >
+//           <Link href={generateLink(i)}>{item}</Link>
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// };
 
 const ButtonGroup = ({ setActive, router }) => (
   <Button
@@ -46,14 +46,13 @@ const ButtonGroup = ({ setActive, router }) => (
     styles="mx-2 rounded-xl"
     handleClick={() => {
       setActive('');
-      router.push('/nfts/create');
+      router.push('/');
     }}
   />
 );
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
-  const [active, setActive] = useState('Home');
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -73,7 +72,6 @@ const Navbar = () => {
           <div className="hidden md:flex" onClick={() => {}}>
             <Image
               src={images.logo02}
-              objectFit="contain"
               width={32}
               height={32}
               alt="logo"
@@ -106,7 +104,7 @@ const Navbar = () => {
             <i className="fas fa-bell" />
           </div>
           <div className="ml-4">
-            <ButtonGroup setActive={setActive} router={router} />
+            <ButtonGroup router={router} />
           </div>
         </div>
       </div>
@@ -138,11 +136,9 @@ const Navbar = () => {
       </div>
       {isOpen && (
         <div className="fixed inset-0 top-65 nav-h z-10 dark:bg-w-dark bg-white flex flex-col justify-between">
-          <div className="flex-1 p4">
-            <MenuItems isMobile active={active} setActive={setActive} />
-          </div>
+
           <div className="p-4 border-t dark:border-w-black-1 border-w-grey-1 ">
-            <ButtonGroup setActive={setActive} router={router} />
+            <ButtonGroup router={router} />
           </div>
         </div>
       )}

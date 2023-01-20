@@ -5,7 +5,6 @@ import { Navbar, Footer } from '../components';
 import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => (
-
   <ThemeProvider attribute="class">
     <div className="dark:bg-w-dark bg-white min-h-screen">
       <Navbar />
@@ -14,8 +13,10 @@ const MyApp = ({ Component, pageProps }) => (
       </div>
       <Footer />
     </div>
-
-    <Script src="https://kit.fontawesome.com/8a40a6fca5.js" crossOrigin="anonymous" />
+    <Script
+      src="https://kit.fontawesome.com/8a40a6fca5.js"
+      crossOrigin="anonymous"
+    />
   </ThemeProvider>
 );
 

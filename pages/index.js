@@ -38,24 +38,24 @@ const Home = () => {
   });
 
   return (
-    <div className="flex justify-center sm:px-4 p-12">
+    <div className="flex justify-center sm:px-4 p-12 py-5">
       <div className="w-full minmd:w-4/5">
         <Banner
           name="Find Everthing You Need About Your Electricity"
           substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
-          styles="justify-start mb-6 h-50 sm:h-50 p-12 xs:p-4 xs:h-44 rounded-3xl"
+          styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded-3xl"
         />
         <div>
-          <div className="relative flex-1 justify-center max-w-full flex mt-3" ref={parentRef}>
+          <div
+            className="relative flex-1 justify-center max-w-full flex mt-1"
+            ref={parentRef}
+          >
             <div
-              className="flex flex-row w-max overflow-x-scroll no-scrollbar"
+              className="flex flex-row overflow-x-scroll no-scrollbar"
               ref={scrollRef}
             >
               {Object.keys(frequentActions).map((key) => (
-                <CreatorCard
-                  key={key}
-                  element={frequentActions[key]}
-                />
+                <CreatorCard key={key} element={frequentActions[key]} />
               ))}
               {!hideButtons && (
                 <>
@@ -85,57 +85,26 @@ const Home = () => {
           </div>
         </div>
         {/* SignalCard */}
-        <div className="mt-10">
+        <div className="mt-10 sm:mt-5">
           <div className="flexBetween mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
-            <h1 className=" flex-1 before:first:font-poppins text-color text-2xl minlg:text-4xl font-semibold sm:mb-4">
-              Projections
-            </h1>
-            <div>Search</div>
-          </div>
-          {/* <div className="mt-3 w-full flex flex-wrap justify-start md:justify-evenly">
-            {[1, 2, 3].map((i) => (
-              <ActionCard
-                key={`sig${i}`}
-                signal={{
-                  i,
-                  icon: 'https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/cardano_ada-512.png',
-                  name: 'ADA/USDT',
-                  entry: '1.23',
-                  stop: '1.12',
-                  targets: ['1.34', '1.45'],
-                  price: 0.13 * i,
-                  createdAt: '10 May, 12:00 PM',
-                  info: ['portfolio allocation 4%'],
-                  description: 'Best NFT',
-                }}
+            <div className="flex-row flexBetween sm:mb-2 sm:w-full ">
+              <h1 className=" before:first:font-poppins text-color text-2xl minlg:text-4xl font-semibold ">
+                Posts
+              </h1>
+              <div className=" ml-5 bg-w-grey-1 dark:bg-w-black-1 p-2 pt-1 rounded-md">
+                <p>Latest</p>
+              </div>
+            </div>
+            <div className="flexBetween minlg:w-557  bg-color border border-color rounded-md">
+              <input
+                type="text"
+                placeholder="Search"
+                className="h-full flex-1 w-full bg-color px-4 rounded-md text-color font-normal text-xws minglg:text-lg outlint-none"
               />
-            ))}
-          </div> */}
+              <i className="fas fa-search p-2 " />
+            </div>
+          </div>
         </div>
-        {/* NFTCard */}
-        {/* <div className="mt-10">
-          <div className="flexBetween mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
-            <h1 className=" flex-1 before:first:font-poppins text-color text-2xl minlg:text-4xl font-semibold sm:mb-4">
-              Best Nfts
-            </h1>
-            <div>Search</div>
-          </div>
-          <div className="mt-3 w-full flex flex-wrap justify-start md:justify-evenly">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-              <NFTCard
-                key={`nft${i}`}
-                nft={{
-                  i,
-                  name: `GMNFT${i}`,
-                  seller: `0x${makeId(3)}...${makeId(4)}`,
-                  owner: `0x${makeId(3)}...${makeId(4)}`,
-                  price: 0.13 * i,
-                  description: 'Best NFT',
-                }}
-              />
-            ))}
-          </div>
-        </div> */}
       </div>
     </div>
   );
