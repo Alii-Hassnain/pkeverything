@@ -19,6 +19,7 @@ import arrow from './arrow.png';
 export default {
   heartOutline,
   heart,
+
   search,
   tick,
   cross,
