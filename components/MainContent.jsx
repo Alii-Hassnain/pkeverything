@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { categories } from '../data';
 
 const categoryItem = (cat) => (
@@ -28,8 +29,27 @@ const Categories = () => (
 );
 
 const Posts = () => (
-  <div>
-    Posts
+  <div
+    className="flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-4 md:m-2 md:p-3"
+    onClick={() => {}}
+  >
+    <div className="mr-5 flexCenter">
+      <i className="fa fa-user fa-grey" />
+      <div className="flex flex-col flexStart pl-5">
+        <p className="font-poppins heading-color text-center text-sm minlg:text-sm mb-2">
+          Notification for the New Tenders
+        </p>
+        <h6 className="font-poppins text-color text-center text-xs minlg:text-sm">
+          This is the description
+        </h6>
+      </div>
+    </div>
+    <div className="my-2 flex justify-center">
+      <div className="px-5 flexCenter flex-col">
+        <i className="fa fa-eye fa-grey" />
+        <p className="text-color">19.5k</p>
+      </div>
+    </div>
   </div>
 );
 

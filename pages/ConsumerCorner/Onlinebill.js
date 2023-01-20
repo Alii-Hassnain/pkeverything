@@ -44,52 +44,54 @@ const OnlineBill = () => {
   }
 
   return (
-    <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5">
-      <Banner
-        name={window.location.pathname.split('/')[2]}
-        substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
-        styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded"
-      />
-      <p className="font-poppins text-color minlg:text-xl text-sm">
-        Here you can find Bills of all Electric companies of Pakistan
-      </p>
-      <div className="flex-row flexBetween flex-wrap">
-        {Object.keys(companies).map((key) => (
-          <div className=" mr-3 mt-3  border border-color p-1 rounded-lg">
-            <p
-              title={companies[key]}
-              className="font-poppins text-color minlg:text-xl text-sm"
-            >
-              {companies[key].toUpperCase()}
-            </p>
-          </div>
-        ))}
-      </div>
-      <p className=" mt-2 font-poppins text-color minlg:text-xl text-sm">
-        To Find the Bill information Enter the Consumer ID mentioned on your
-        bill
-      </p>
-      <div className="">
-        <Input
-          title="ConsumerID"
-          type="number"
-          placeholder="Enter Your Consumer ID"
-          handleClick={() => {
-            setConsumerId(ConsumerId);
-          }}
+    <div className="flexCenter">
+      <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
+        <Banner
+          name={window.location.pathname.split('/')[2]}
+          substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
+          styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded"
         />
+        <p className="font-poppins text-color minlg:text-xl text-sm">
+          Here you can find Bills of all Electric companies of Pakistan
+        </p>
+        <div className="flex-row flexBetween flex-wrap">
+          {Object.keys(companies).map((key) => (
+            <div className=" mr-3 mt-3  border border-color p-1 rounded-lg">
+              <p
+                title={companies[key]}
+                className="font-poppins text-color minlg:text-xl text-sm"
+              >
+                {companies[key].toUpperCase()}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className=" mt-2 font-poppins text-color minlg:text-xl text-sm">
+          To Find the Bill information Enter the Consumer ID mentioned on your
+          bill
+        </p>
+        <div className="">
+          <Input
+            title="ConsumerID"
+            type="number"
+            placeholder="Enter Your Consumer ID"
+            handleClick={() => {
+              setConsumerId(ConsumerId);
+            }}
+          />
+        </div>
+        <div className="flex-row flexBetween">
+          <Button
+            styles="rounded my-4"
+            btnName="Submit"
+            handleClick={() => calculate(ConsumerId)}
+          />
+          <a href="/" className="text-xs text-color minlg:text-xl ">
+            Cant Find Your Bill ?
+          </a>
+        </div>
+        <RelatedContent />
       </div>
-      <div className="flex-row flexBetween">
-        <Button
-          styles="rounded my-4"
-          btnName="Submit"
-          handleClick={() => calculate(ConsumerId)}
-        />
-        <a href="/" className="text-xs text-color minlg:text-xl ">
-          Cant Find Your Bill ?
-        </a>
-      </div>
-      <RelatedContent />
     </div>
   );
 };
