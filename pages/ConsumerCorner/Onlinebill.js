@@ -55,7 +55,7 @@ const OnlineBill = () => {
       </p>
       <div className="flex-row flexBetween flex-wrap">
         {Object.keys(companies).map((key) => (
-          <div className=" mr-3 mt-3  border dark:border-w-black-2 border-w-grey-1 p-1 rounded-lg">
+          <div className=" mr-3 mt-3  border border-color p-1 rounded-lg">
             <p
               title={companies[key]}
               className="font-poppins text-color minlg:text-xl text-sm"

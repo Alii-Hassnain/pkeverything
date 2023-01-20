@@ -5,3 +5,9 @@ export const frequentActions = {
   BillTarifs: ['Taxes & Tarifs', 'fas fa-file-invoice-dollar fa-2xl', '/ConsumerCorner/BillTarifs'],
 };
 
+export const categories = {
+  ConsumerCorner: ['fas fa-users fa-green', 'Consumer Corner'],
+  EmployeesCorner: ['fas fa-briefcase fa-blue', 'Employees Corner'],
+  TenderAndContracts: ['fas fa-file-contract fa-red', 'Tender And Contracts'],
+};
+

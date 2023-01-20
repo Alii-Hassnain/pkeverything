@@ -7,13 +7,16 @@
 
 
 .text-color{
-  @apply dark:text-white text-w-black-1;
+  @apply dark:text-w-grey-2 text-w-black-1;
+}
+.heading-color{
+  @apply dark:text-w-grey-1 text-w-black-1;
 }
 .bg-color{
-  @apply dark:bg-w-black-2 bg-white
+  @apply dark:bg-w-black-2 bg-w-grey-1;
 }
 .border-color{
-  @apply dark:border-w-black-1 border-w-grey-1
+  @apply dark:border-w-black-3 border-w-grey-1
 }
 .buy {
   background-color:#90EE90 
@@ -58,6 +61,7 @@ button:hover{
 
 .nav-h{
   height:calc(100vh - 66px);
+  color: #6c7c93
 }
 
 .no-scrollbar::-webkit-scrollbar{
@@ -88,12 +92,24 @@ button:hover{
   background-color:white;
 }
 .fa-moon{
-  color:pink;
+  color:grey;
   font-size: 10px;
 }
 .fa-sun{
-  color:#f1c40f;  
+  color:#ecc93d;  
   font-size: 10px;
+}
+.fa-green{
+  color:#46b87e;
+}
+.fa-blue{
+  color:#4c9be0;
+}
+.fa-red{
+  color:#e9544d;
+}
+.fa-grey{
+  color:#6c7c93;
 }
 
 .flexCenter{

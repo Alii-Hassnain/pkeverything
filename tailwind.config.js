@@ -11,11 +11,11 @@ module.exports = {
         primary: '#064663',
         secondary: '#4d194d',
         'regal-blue': '#243c5a',
-        'w-dark': '#24252D',
+        'w-dark': '#15191d',
         'w-grey-1': '#E3E1E3',
-        'w-grey-2': '#888888',
+        'w-grey-2': '#6c7c93',
         'w-grey-3': '#4F4F4F',
-        'w-black-1': '#2D2E36',
+        'w-black-1': '#1b2027',
         'w-black-2': '#1B1A21',
         'w-black-3': '#2A2D3A',
         'w-black-4': '#24252D',
@@ -58,6 +58,11 @@ module.exports = {
       zIndex: {
         '-5': '-5',
         0: '0',
+      },
+      invert: {
+        25: '.25',
+        50: '.5',
+        75: '.75',
       },
       screens: {
         lg: { max: '1800px' },

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import { Banner, CreatorCard } from '../components';
+import { Banner, CreatorCard, MainContent } from '../components';
 import images from '../assets';
 import { frequentActions } from '../data';
 
@@ -66,7 +66,7 @@ const Home = () => {
                     <Image
                       src={images.left}
                       alt="lefticon"
-                      className={theme === 'light' && 'filter invert'}
+                      className={theme === 'light' && 'filter invert-75'}
                     />
                   </div>
                   <div
@@ -76,7 +76,7 @@ const Home = () => {
                     <Image
                       src={images.right}
                       alt="righticon"
-                      className={theme === 'light' && 'filter invert'}
+                      className={theme === 'light' && 'filter invert-75'}
                     />
                   </div>
                 </>
@@ -86,25 +86,26 @@ const Home = () => {
         </div>
         {/* SignalCard */}
         <div className="mt-10 sm:mt-5">
-          <div className="flexBetween mx-4 xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
+          <div className="flexBetween  xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
             <div className="flex-row flexBetween sm:mb-2 sm:w-full ">
-              <h1 className=" before:first:font-poppins text-color text-2xl minlg:text-4xl font-semibold ">
-                Posts
-              </h1>
+              <div className=" bg-w-grey-1 dark:bg-w-black-1 p-2 pt-1 rounded-md">
+                <p className="text-w-grey-2">Posts</p>
+              </div>
               <div className=" ml-5 bg-w-grey-1 dark:bg-w-black-1 p-2 pt-1 rounded-md">
-                <p>Latest</p>
+                <p className="text-w-grey-2">Latest</p>
               </div>
             </div>
-            <div className="flexBetween minlg:w-557  bg-color border border-color rounded-md">
+            <div className="flexBetween minlg:w-557  bg-color border border-color rounded-md  bg-w-grey-1 dark:bg-w-black-1">
               <input
                 type="text"
                 placeholder="Search"
-                className="h-full flex-1 w-full bg-color px-4 rounded-md text-color font-normal text-xws minglg:text-lg outlint-none"
+                className="h-full flex-1 w-full bg-color px-4 rounded-md  font-normal text-xws minglg:text-lg outline-none  bg-w-grey-1 dark:bg-w-black-1 "
               />
-              <i className="fas fa-search p-2 " />
+              <i className="fas fa-search p-2 fa-grey " />
             </div>
           </div>
         </div>
+        <MainContent />
       </div>
     </div>
   );

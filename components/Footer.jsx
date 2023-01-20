@@ -6,13 +6,13 @@ import Button from './Button';
 
 const FooterLinks = ({ heading, items }) => (
   <div className="flex-1 justify-start items-start">
-    <h3 className="font-poppins text-color font-semibold text-xl mb-10">
+    <h3 className="font-poppins heading-color font-semibold text-xl mb-10">
       {heading}
     </h3>
     {items.map((item, index) => (
       <p
         key={index}
-        className="font-poppins text-color font-normal text-base cursor-pointer dark:hover:text-secondary hover:text-secondary my-3  transition-all ease-in-out"
+        className="font-poppins text-color font-normal text-base cursor-pointer dark:hover:text-secondary hover:text-primary my-3  transition-all ease-in-out"
       >
         {item}
       </p>
@@ -28,16 +28,16 @@ const Footer = () => {
         <div className="flexStart flex-1 flex-col">
           <div className="flexCenter cursor-pointer">
             <Image src={images.logo02} width={32} height={32} alt="logo" />
-            <p className="text-color font-semibold text-lg ml-1">BIJLI WALA</p>
+            <p className="heading-color font-semibold text-lg ml-1">BIJLI WALA</p>
           </div>
-          <p className="font-poppins text-color font-semibold text-base mt-6">
+          <p className="font-poppins heading-color font-semibold text-base mt-6">
             Subscribe The News letter and Get The Latest News and notification
           </p>
-          <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 bg-color border border-color rounded-md">
+          <div className="flexBetween md:w-full minlg:w-557 w-357 mt-6 bg-color border border-color rounded-md  bg-w-grey-1 dark:bg-w-black-1">
             <input
               type="email"
               placeholder="Your Email"
-              className="h-full flex-1 w-full bg-color px-4 rounded-md text-color font-normal text-xws minglg:text-lg outlint-none"
+              className="h-full flex-1 w-full bg-color px-4 rounded-md text-color font-normal text-xws minglg:text-lg outline-none  bg-w-grey-1 dark:bg-w-black-1"
             />
             <Button
               btnName="Subscribe"
@@ -86,7 +86,7 @@ const Footer = () => {
       </div>
       <div className="flexCenter w-full mt-5 border-t border-color sm:px-4 px-16 ">
         <div className="flexBetween flex-row w-full minmd:w-4/5 sm:flex-col mt-7 ">
-          <p className="font-poppins text-color font-semibold text-base">
+          <p className="font-poppins heading-color font-semibold text-base">
             BIJLI WALA, Inc. All Right Reserved.
           </p>
           <div className="flex flex-row sm:mt-4">
