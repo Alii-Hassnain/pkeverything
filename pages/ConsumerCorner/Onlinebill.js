@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { Button, Input, RelatedContent, Banner } from '../../components';
 
 const OnlineBill = () => {
@@ -99,9 +100,9 @@ const OnlineBill = () => {
             btnName="Submit"
             handleClick={() => calculate(ConsumerId)}
           />
-          <a href="/" className="text-xs text-color minlg:text-xl ">
+          <Link href="/" className="text-xs text-color minlg:text-xl ">
             Cant Find Your Bill ?
-          </a>
+          </Link>
         </div>
         <RelatedContent />
       </div>

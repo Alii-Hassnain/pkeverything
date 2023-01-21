@@ -16,7 +16,10 @@
   @apply dark:bg-w-black-2 bg-w-grey-1;
 }
 .border-color{
-  @apply dark:border-w-black-3 border-w-grey-1
+  @apply dark:border-w-black-3 border-w-grey-1;
+}
+.input-styles{
+  @apply dark:bg-w-black-1 bg-w-grey-1 border border-color rounded-lg w-full outline-none font-poppins dark:text-w-grey-1 text-w-grey-2 text-base mt-4 px-4 py-3;
 }
 .buy {
   background-color:#90EE90 

@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { categories } from '../data';
 
 const categoryItem = (cat) => (
@@ -17,7 +16,11 @@ const MainContent = () => (
       <Categories />
     </div>
     <div className="flex-2 flex-col">
-      <Posts />
+      {[1, 2, 3, 4, 5, 6].map((post) => (
+        <Posts
+          key={post}
+        />
+      ))}
     </div>
   </div>
 );

@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { Button, Input, RelatedContent, Banner } from '../../components';
 
+// const domesticSettings = {
+
+// };
+
 const BillEstimator = () => {
-  const [ConnectionType, setConnectionType] = useState('Domestic');
+//   const [form, setForm] = useState({
+//     connectionType: '',
+//   });
   const router = useRouter();
   return (
     <div className="flexCenter">
@@ -20,25 +27,23 @@ const BillEstimator = () => {
           To Find the Bill information Enter the Consumer ID mentioned on your
           bill
         </p>
-        <div className="">
-          <Input
-            title="Connection Type"
-            type="text"
-            placeholder="Enter Your Consumer ID"
-            handleClick={(e) => {
-              setConnectionType(e.target.value);
-            }}
-          />
-        </div>
+        <Input
+          type="select"
+          options={['Domestic', 'Commercial', 'Industrial', 'General Service', 'Agriculture']}
+          title="Select Connection Type"
+          handleClick={() => {
+            // setForm(e.target.value);
+          }}
+        />
         <div className="flex-row flexBetween">
           <Button
             styles="rounded my-4"
             btnName="Submit"
             handleClick={() => {}}
           />
-          <a href="/" className="text-xs text-color minlg:text-xl ">
+          <Link href="/" className="text-xs text-color minlg:text-xl ">
             More Advanced Estimator
-          </a>
+          </Link>
         </div>
         <RelatedContent />
       </div>

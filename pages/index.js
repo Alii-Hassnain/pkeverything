@@ -91,8 +91,11 @@ const Home = () => {
               <div className=" bg-w-grey-1 dark:bg-w-black-1 p-2 pt-1 rounded-md">
                 <p className="text-w-grey-2">Posts</p>
               </div>
-              <div className=" ml-5 bg-w-grey-1 dark:bg-w-black-1 p-2 pt-1 rounded-md">
-                <p className="text-w-grey-2">Latest</p>
+              <div className=" ml-5 ">
+                <select className="dark:bg-w-black-1 bg-w-grey-1 border border-color rounded-lg w-full outline-none font-poppins dark:text-w-grey-1 text-w-grey-2 text-base p-1.5">
+                  <option value="1">Latest</option>
+                  <option value="1">Most Viewed</option>
+                </select>
               </div>
             </div>
             <div className="flexBetween minlg:w-557  bg-color border border-color rounded-md  bg-w-grey-1 dark:bg-w-black-1">
