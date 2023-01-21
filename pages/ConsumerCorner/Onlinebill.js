@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { Button, Input, RelatedContent, Banner } from '../../components';
 
 const OnlineBill = () => {
-  const [ConsumerId, setConsumerId] = useState('0');
+  const [ConsumerId, setConsumerId] = useState(0);
+  const router = useRouter();
 
   const companies = {
     11: 'lesco',
@@ -34,20 +36,31 @@ const OnlineBill = () => {
     }
     if (company === '11') {
       // specific for lesco
-      url = `http://www.lesco.gov.pk:36247/BillNew.aspx?BatchNo=${ref.slice(0, 2)}&SubDiv=${ref.slice(2, 8).trim()}&RefNo=${ref.slice(8, 16).trim()}&RU=U&Exec=941N7&nCtID=`;
-    } else if (company === '26' || company === '37' || company === '38' || company === '48') {
+      url = `http://www.lesco.gov.pk:36247/BillNew.aspx?BatchNo=${ref.slice(
+        0,
+        2,
+      )}&SubDiv=${ref.slice(2, 8).trim()}&RefNo=${ref
+        .slice(8, 16)
+        .trim()}&RU=U&Exec=941N7&nCtID=`;
+    } else if (
+      company === '26'
+      || company === '37'
+      || company === '38'
+      || company === '48'
+    ) {
       url = `https://bill.pitc.com.pk/${companies[company]}bill/${type}?refno=${ref}`;
     } else {
       url = `https://bill.pitc.com.pk/${companies[company]}bill/${type}/${ref}`;
     }
+    console.log(ConsumerId);
     window.location.href = url;
   }
-
+  // name={window.location.pathname.split('/')[2]}
   return (
     <div className="flexCenter">
       <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
         <Banner
-          name={window.location.pathname.split('/')[2]}
+          name={router.pathname.split('/')[2]}
           substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
           styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded"
         />
@@ -56,7 +69,7 @@ const OnlineBill = () => {
         </p>
         <div className="flex-row flexBetween flex-wrap">
           {Object.keys(companies).map((key) => (
-            <div className=" mr-3 mt-3  border border-color p-1 rounded-lg">
+            <div key={companies[key]} className=" mr-3 mt-3  border border-color p-1 rounded-lg">
               <p
                 title={companies[key]}
                 className="font-poppins text-color minlg:text-xl text-sm"
@@ -75,8 +88,8 @@ const OnlineBill = () => {
             title="ConsumerID"
             type="number"
             placeholder="Enter Your Consumer ID"
-            handleClick={() => {
-              setConsumerId(ConsumerId);
+            handleClick={(e) => {
+              setConsumerId(e.target.value);
             }}
           />
         </div>
@@ -96,3 +109,6 @@ const OnlineBill = () => {
   );
 };
 export default OnlineBill;
+
+// 20123151733300
+// 20123151733301

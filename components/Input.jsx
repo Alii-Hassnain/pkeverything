@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-const Input = ({ type, title, placeholder, handleClick }) => {
+const Input = ({ type, options, title, placeholder, handleClick }) => {
   const inputstyles = useMemo(() => 'dark:bg-w-black-1 bg-w-grey-1 border border-color rounded-lg w-full outline-none font-poppins dark:text-white text-w-grey-2 text-base mt-4 px-4 py-3', []);
   return (
     <div className="mt-10 w-full ">
@@ -23,6 +23,13 @@ const Input = ({ type, title, placeholder, handleClick }) => {
             onChange={handleClick}
           />
         </div>
+      ) : options ? (
+        <input
+          className={inputstyles}
+          type={type}
+          placeholder={placeholder}
+          onChange={handleClick}
+        />
       ) : (
         <input
           className={inputstyles}

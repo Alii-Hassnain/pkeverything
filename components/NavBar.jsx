@@ -7,39 +7,6 @@ import Link from 'next/link';
 import images from '../assets';
 import Button from './Button';
 
-// const MenuItems = ({ isMobile, active, setActive }) => {
-//   const generateLink = (i) => {
-//     switch (i) {
-//       case 0: return '/';
-//       case 1: return '/nfts/create';
-//       case 2: return '/nfts/detail';
-//       default: return '/';
-//     }
-//   };
-
-//   return (
-//     <ul
-//       className={`list-none flexCenter flex-row ${
-//         isMobile && 'flex-col h-full'
-//       }`}
-//     >
-//       {['Home', 'Listed NFTs', 'My NFTs'].map((item, i) => (
-//         <li
-//           key={i}
-//           onClick={() => {
-//             setActive(item);
-//           }}
-//           className={`flex flex-row items-center font-poppins font-semibold text-base dark:hover:text-white hover:text-w-dark mx-3  transition-all ${active === item
-//             ? 'text-color'
-//             : 'dark:text-w-grey-3 text-w-grey-2'} `}
-//         >
-//           <Link href={generateLink(i)}>{item}</Link>
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// };
-
 const ButtonGroup = ({ setActive, router }) => (
   <Button
     btnName="Login"
@@ -59,6 +26,16 @@ const Navbar = () => {
   return (
     <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:border-w-grey-2  dark:w-dark bg-white dark:bg-w-black-1 w-grey-1">
       <div className="flex flex-1 flex-row justify-Start">
+        {router.pathname === '/' ? null : (
+          <div
+            onClick={router.back}
+            className="bg-w-grey-1 dark:bg-w-black-3 p-2 mr-2 rounded-md"
+          >
+            <div className="flex">
+              <i className="fa fa-arrow-left-long fa-grey " />
+            </div>
+          </div>
+        )}
         <Link href="/">
           <div
             className="flexCenter md:hidden cursor-pointer "
@@ -70,12 +47,7 @@ const Navbar = () => {
         </Link>
         <Link href="/">
           <div className="hidden md:flex" onClick={() => {}}>
-            <Image
-              src={images.logo02}
-              width={32}
-              height={32}
-              alt="logo"
-            />
+            <Image src={images.logo02} width={32} height={32} alt="logo" />
           </div>
         </Link>
       </div>
@@ -136,7 +108,6 @@ const Navbar = () => {
       </div>
       {isOpen && (
         <div className="fixed inset-0 top-65 nav-h z-10 dark:bg-w-dark bg-white flex flex-col justify-between">
-
           <div className="p-4 border-t dark:border-w-black-1 border-w-grey-1 ">
             <ButtonGroup router={router} />
           </div>
