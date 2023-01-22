@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({ type, options, title, placeholder, handleClick }) => (
+const Input = ({ type, options, title, name, placeholder, handleClick }) => (
   <div className="mt-10 w-full ">
     <p className="font-poppins text-color font-semibold text-xl">{title}</p>
     {type === 'number' ? (
@@ -22,7 +22,7 @@ const Input = ({ type, options, title, placeholder, handleClick }) => (
         />
       </div>
     ) : type === 'select' ? (
-      <select name={title} className="input-styles" onChange={handleClick}>
+      <select name={name} className="input-styles" onChange={handleClick}>
         {options.map((option) => (
           <option value={option} key={option}>
             {option}
