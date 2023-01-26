@@ -120,4 +120,6 @@ const DomesticForm = () => {
 
 };
 
+const IndustrialForm = () => {};
+
 export default BillEstimator;
