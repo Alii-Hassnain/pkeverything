@@ -22,6 +22,7 @@ const BillEstimator = () => {
     ofpeek: '',
     peek: '',
   });
+  // further functionality to be added for different connection types
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
