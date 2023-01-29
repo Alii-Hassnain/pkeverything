@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+import Navbar from './NavBar';
 import Footer from './Footer';
 import Banner from './Banner';
 import Button from './Button';

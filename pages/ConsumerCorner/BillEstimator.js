@@ -3,15 +3,15 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button, Input, RelatedContent, Banner } from '../../components';
 
-const domesticSettings = {
-  metertype: { 'Single Phase': 1,
-    '3 Phase': {
-      OfPeak: 1, Peek: 1,
-    } },
-  '0-50': 3.95,
-  '51-100': 4.95,
-  '101-200': 5.95,
-};
+// const domesticSettings = {
+//   metertype: { 'Single Phase': 1,
+//     '3 Phase': {
+//       OfPeak: 1, Peek: 1,
+//     } },
+//   '0-50': 3.95,
+//   '51-100': 4.95,
+//   '101-200': 5.95,
+// };
 
 const BillEstimator = () => {
   const router = useRouter();
@@ -123,10 +123,10 @@ const BillEstimator = () => {
   );
 };
 
-const DomesticForm = () => {
+// const DomesticForm = () => {
 
-};
+// };
 
-const IndustrialForm = () => {};
+// const IndustrialForm = () => {};
 
 export default BillEstimator;
