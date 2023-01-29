@@ -58,15 +58,21 @@ const BillEstimator = () => {
               handleForm(e);
             }}
           />
-          <Input
-            type="select"
-            options={['Single Phase', '3 Phase']}
-            title="Meter Type"
-            name="metertype"
-            handleClick={(e) => {
-              handleForm(e);
-            }}
-          />
+          {form.connectionType === 'Domestic' ? (
+            <Input
+              type="select"
+              options={['Single Phase', '3 Phase']}
+              title="Meter Type"
+              name="metertype"
+              handleClick={(e) => {
+                handleForm(e);
+              }}
+            />
+          ) : (
+            <div>
+              <Input type="select" options={['Single Phase', '3 Phase']} title="Meter Type" name="metertype" handleClick={(e) => { handleForm(e); }} />
+            </div>
+          )}
           {form.metertype === '3 Phase' ? (
             <div className="flex ">
               <div className="pr-2">
