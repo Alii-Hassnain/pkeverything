@@ -30,37 +30,29 @@ const Categories = () => (
     {Object.keys(categories).map((cat) => categoryItem(cat))}
   </div>
 );
-function generateRandomColor() {
-  const maxVal = 0xffffff; // 16777215.
-  let randomNumber = Math.random() * maxVal;
-  randomNumber = Math.floor(randomNumber);
-  randomNumber = randomNumber.toString(16);
-  const randColor = randomNumber.padStart(6, 0);
-  return `#${randColor.toUpperCase()}`;
-}
 
-const Posts = ({ title = 'Notifications', descriptions, views }) => (
+const Posts = ({ title = 'Notifications', description, views, profileColor }) => (
   <div
     className="flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-1 md:m-2 md:p-3"
     onClick={() => {}}
   >
     <div className="mr-5 flexCenter">
-      <div className="rounded-full px-3 py-1" style={{ backgroundColor: `${generateRandomColor()}` }}>
+      <div className="rounded-full px-3 py-1" style={{ backgroundColor: `${profileColor || '#fff'}` }}>
         <p className="text-color">{title.slice(0, 1).toUpperCase()}</p>
       </div>
       <div className="flex flex-col flexStart pl-5">
         <p className="font-poppins heading-color text-center text-sm minlg:text-sm mb-2">
-          Notification for the New Tenders
+          {title}
         </p>
         <h6 className="font-poppins text-color text-center text-xs minlg:text-sm">
-          This is the description
+          {description}
         </h6>
       </div>
     </div>
     <div className="my-2 flex justify-center">
       <div className="px-5 flexCenter flex-col">
         <i className="fa fa-eye fa-grey" />
-        <p className="text-color">19.5k</p>
+        <p className="text-color">{views}</p>
       </div>
     </div>
   </div>

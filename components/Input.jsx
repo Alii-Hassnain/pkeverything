@@ -7,6 +7,7 @@ const Input = ({ type, options, title, name, placeholder, handleClick }) => (
       <div className="input-styles flexBetween flex-row">
         <input
           type={type}
+          name={name}
           className="flex w-full dark:bg-w-black-1 bg-w-grey-1 outline-none "
           placeholder={placeholder}
           onChange={handleClick}
@@ -16,6 +17,7 @@ const Input = ({ type, options, title, name, placeholder, handleClick }) => (
       <div className="flex flex-row">
         <textarea
           rows={10}
+          name={name}
           className="input-styles"
           placeholder={placeholder}
           onChange={handleClick}
@@ -32,6 +34,7 @@ const Input = ({ type, options, title, name, placeholder, handleClick }) => (
     ) : (
       <input
         className="input-styles"
+        name={name}
         type={type}
         placeholder={placeholder}
         onChange={handleClick}
