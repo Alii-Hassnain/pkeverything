@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Input, Banner, Button } from '../../components';
+// import Config from '../../lib';
 
 const CreatePost = () => {
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     title: '',
     description: '',
     fileUrl: '',
     profileColor: '',
-    upload_preset: 'pkeverything',
+    views: '',
   });
 
   const generateRandomColor = () => {
@@ -22,25 +24,47 @@ const CreatePost = () => {
   };
 
   const handleForm = (e) => {
-    console.log(e.target.name);
     if (e.target.name === 'fileUrl') {
-      const color = generateRandomColor();
-      setFile(e.target.files);
-      return setForm({ ...form, profileColor: color });
+      return setFile(e.target.files[0]);
     }
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async () => {
-    console.log(form.fileUrl);
+    try {
+      setLoading(true);
+      const color = generateRandomColor();
+      setForm({ ...form, profileColor: color, views: 0 });
 
-    const responce = await axios.post('https://api.cloudinary.com/v1_1/colbydemo/image/upload', { body: {
-      file,
-      upload_preset: form.upload_preset,
-    } });
-    const data = await responce.json();
+      const fileData = new FormData();
+      fileData.append('file', file);
+      fileData.append('upload_preset', 'bijliwala');
+      const cloudinaryUrl = 'https://api.cloudinary.com/v1_1/de1qop9bf/image/upload';
+      const fileUploaded = await axios.post(cloudinaryUrl, fileData);
 
-    setForm({ ...form, fileUrl: data.secureUrl });
+      console.log(fileUploaded.data.secureUrl);
+
+      const formData = new FormData();
+      Object.keys(form).forEach((key) => {
+        if (key === 'fileUrl') {
+          formData.append('fileUrl', fileUploaded.data.secureUrl);
+          return;
+        }
+        formData.append([key], form[key]);
+      });
+
+      console.log('handle submit here');
+      console.log(formData);
+
+      const responce = await axios.post('/api/posts', formData);
+      const data = responce;
+      console.log(data);
+      setLoading(false);
+    } catch (err) {
+      return { error: err };
+    }
+
+    // This will fetch the posts form the data base
   };
 
   useEffect(() => {
@@ -70,6 +94,11 @@ const CreatePost = () => {
         btnName="Submit"
         handleClick={handleSubmit}
       />
+      {loading && (
+      <div className="fixed justify-center w-full h-full bg-transparent">
+        ... Loading
+      </div>
+      )}
     </div>
   );
 };
