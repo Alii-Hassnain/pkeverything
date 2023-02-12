@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import { Banner } from '../components';
+import { Banner } from '../../components';
 
 const Posts = () => {
   const [data, setData] = useState([]);
   const router = useRouter();
+  // const globaContext = useContext();
 
-  async function fetchMyPosts() {
-    const response = await axios.get('api/posts');
-    setData(response.data);
-  }
   useEffect(() => {
-    fetchMyPosts();
+
   }, []);
 
   return (
