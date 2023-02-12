@@ -4,11 +4,12 @@ import { Input, Banner, Button } from '../../components';
 // import Config from '../../lib';
 
 const CreatePost = () => {
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState(null);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     title: '',
     description: '',
+    type: '',
     fileUrl: '',
     profileColor: '',
     views: '',
@@ -25,7 +26,7 @@ const CreatePost = () => {
 
   const handleForm = (e) => {
     if (e.target.name === 'fileUrl') {
-      return setFile(e.target.files[0]);
+      return setFiles(e.target.files);
     }
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -37,7 +38,10 @@ const CreatePost = () => {
       setForm({ ...form, profileColor: color, views: 0 });
 
       const fileData = new FormData();
-      fileData.append('file', file);
+      Object.keys(files).forEach((key) => {
+        fileData.append([key], files[key]);
+      });
+      // testing needs to be done
       fileData.append('upload_preset', 'bijliwala');
       const cloudinaryUrl = 'https://api.cloudinary.com/v1_1/de1qop9bf/image/upload';
       const fileUploaded = await axios.post(cloudinaryUrl, fileData);
@@ -84,9 +88,23 @@ const CreatePost = () => {
         placeholder="Enter the Title of the post here"
         handleClick={handleForm}
       />
-      <Input name="description" title="Description" placeholder="File description" type="textarea" handleClick={handleForm} />
+      <Input
+        name="description"
+        title="Description"
+        placeholder="File description"
+        type="textarea"
+        handleClick={handleForm}
+      />
+      <Input
+        title="Type"
+        name="type"
+        type="select"
+        options={['ConsumerCorner', 'Employee Corner', 'Tender & Contracts']}
+        placeholder="Select Post Type"
+        handleClick={handleForm}
+      />
       <div className="mt-4">
-        <input name="fileUrl" id="file" type="file" onChange={handleForm} />
+        <input name="fileUrl" id="file" type="file" onChange={handleForm} multiple />
       </div>
 
       <Button
@@ -95,9 +113,9 @@ const CreatePost = () => {
         handleClick={handleSubmit}
       />
       {loading && (
-      <div className="fixed justify-center w-full h-full bg-transparent">
-        ... Loading
-      </div>
+        <div className="fixed justify-center w-full h-full bg-transparent">
+          ... Loading
+        </div>
       )}
     </div>
   );
