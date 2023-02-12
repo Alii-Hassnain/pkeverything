@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 import { categories } from '../data';
 
 const categoryItem = (cat) => (
@@ -10,20 +12,37 @@ const categoryItem = (cat) => (
   </div>
 );
 
-const MainContent = () => (
-  <div className="flex flex-row mt-5">
-    <div className="flex-1 flex-col">
-      <Categories />
+const MainContent = () => {
+  const [data, setData] = useState([]);
+  const router = useRouter();
+
+  async function fetchMyPosts() {
+    const response = await axios.get('api/posts');
+    setData(response.data);
+  }
+  useEffect(() => {
+    fetchMyPosts();
+  }, []);
+
+  console.log(data);
+
+  return (
+    <div className="flex flex-row mt-5">
+      <div className="flex-1 flex-col">
+        <Categories />
+      </div>
+      <div className="flex-2 flex-col">
+        {data.map((post) => (
+          <Posts
+            key={post}
+            data={post}
+            router={router}
+          />
+        ))}
+      </div>
     </div>
-    <div className="flex-2 flex-col">
-      {[1, 2, 3, 4, 5, 6].map((post) => (
-        <Posts
-          key={post}
-        />
-      ))}
-    </div>
-  </div>
-);
+  );
+};
 
 const Categories = () => (
   <div>
@@ -31,31 +50,55 @@ const Categories = () => (
   </div>
 );
 
-const Posts = ({ title = 'Notifications', description, views, profileColor }) => (
-  <div
-    className="flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-1 md:m-2 md:p-3"
-    onClick={() => {}}
-  >
-    <div className="mr-5 flexCenter">
-      <div className="rounded-full px-3 py-1" style={{ backgroundColor: `${profileColor || '#fff'}` }}>
-        <p className="text-color">{title.slice(0, 1).toUpperCase()}</p>
+const postClassNames = {
+  ConsumerCorner: '#46b87e',
+  EmployeeCorner: '#4c9be0',
+  TenderAndContracts: '#e9544d',
+};
+const Posts = (props) => {
+  const { title, description, profileColor, views, type } = props.data;
+
+  return (
+    <div
+      className="cursor-pointer flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-1 md:m-2 md:p-3"
+      onClick={() => {
+        props.router.push('/posts');
+      }}
+    >
+      <div className="mr-5 flexCenter">
+        <div
+          className="rounded-full px-3 py-1"
+          style={{ backgroundColor: `${profileColor || '#fff'}` }}
+        >
+          <p className="text-color">{title.slice(0, 1).toUpperCase()}</p>
+        </div>
+        <div className="flex flex-col flexStart pl-5">
+          <p className="font-poppins heading-color text-center text-sm minlg:text-sm mb-2">
+            {title}
+          </p>
+          <div className="">
+            <h6 className="font-poppins text-color text-xs minlg:text-sm">
+              {description.slice(0, 70)}...
+            </h6>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col flexStart pl-5">
-        <p className="font-poppins heading-color text-center text-sm minlg:text-sm mb-2">
-          {title}
+      <div
+        className="flexCenter  border border-color p-1 rounded-lg"
+        style={{ backgroundColor: postClassNames[type.split(' ').join('')] }}
+      >
+        <p className="font-poppins text-w-black-3 text-center text-xs minlg:text-sm">
+          {type}
         </p>
-        <h6 className="font-poppins text-color text-center text-xs minlg:text-sm">
-          {description}
-        </h6>
+      </div>
+      <div className="my-2 flex justify-center">
+        <div className="px-5 flexCenter flex-col">
+          <i className="fa fa-eye fa-grey" />
+          <p className="text-color">{views}</p>
+        </div>
       </div>
     </div>
-    <div className="my-2 flex justify-center">
-      <div className="px-5 flexCenter flex-col">
-        <i className="fa fa-eye fa-grey" />
-        <p className="text-color">{views}</p>
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 export default MainContent;
