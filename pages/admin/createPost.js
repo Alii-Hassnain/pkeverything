@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Input, Banner, Button } from '../../components';
 // import Config from '../../lib';
@@ -13,6 +13,7 @@ const CreatePost = () => {
     fileUrl: '',
     profileColor: '',
     views: '',
+    tags: '',
   });
 
   const generateRandomColor = () => {
@@ -35,7 +36,7 @@ const CreatePost = () => {
     try {
       setLoading(true);
       const color = generateRandomColor();
-      setForm({ ...form, profileColor: color, views: 0 });
+      setForm({ ...form, profileColor: color, views: 0, tags: form.tags.split(' ') });
 
       const fileData = new FormData();
       Object.keys(files).forEach((key) => {
@@ -71,10 +72,6 @@ const CreatePost = () => {
     // This will fetch the posts form the data base
   };
 
-  useEffect(() => {
-
-  }, []);
-
   return (
     <div className="p-10 ">
       <Banner
@@ -103,8 +100,22 @@ const CreatePost = () => {
         placeholder="Select Post Type"
         handleClick={handleForm}
       />
+
+      <Input
+        title="Tags"
+        name="tags"
+        placeholder="Enter Each Tag With Space"
+        handleClick={handleForm}
+      />
+
       <div className="mt-4">
-        <input name="fileUrl" id="file" type="file" onChange={handleForm} multiple />
+        <input
+          name="fileUrl"
+          id="file"
+          type="file"
+          onChange={handleForm}
+          multiple
+        />
       </div>
 
       <Button
