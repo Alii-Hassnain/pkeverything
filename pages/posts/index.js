@@ -1,16 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import { useRouter } from 'next/router';
+import { GlobalContext } from '../../context/GlobalContext';
 import { Banner } from '../../components';
 
 const Posts = () => {
   const [data, setData] = useState([]);
   const router = useRouter();
-  // const globaContext = useContext();
+  const { fetchPosts } = useContext(GlobalContext);
 
   useEffect(() => {
-
-  }, []);
+    fetchPosts().then((d) => {
+      setData(d);
+    });
+  }, [fetchPosts]);
 
   return (
     <div className="flexCenter">

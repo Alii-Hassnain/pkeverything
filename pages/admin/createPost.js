@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Input, Banner, Button } from '../../components';
-// import Config from '../../lib';
 
 const CreatePost = () => {
+  // console.log(Config);
   const [files, setFiles] = useState(null);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -27,7 +27,7 @@ const CreatePost = () => {
 
   const handleForm = (e) => {
     if (e.target.name === 'fileUrl') {
-      return setFiles(e.target.files);
+      return setFiles(Array.from(e.target.files)[0]);
     }
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -52,7 +52,7 @@ const CreatePost = () => {
       const formData = new FormData();
       Object.keys(form).forEach((key) => {
         if (key === 'fileUrl') {
-          formData.append('fileUrl', fileUploaded.data.secureUrl);
+          formData.append('fileUrl', 'm');
           return;
         }
         formData.append([key], form[key]);

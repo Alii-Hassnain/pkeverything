@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Image from 'next/image';
 import Button from './Button';
 
 const ActionCard = ({ signal }) => (
@@ -23,7 +24,7 @@ const ActionCard = ({ signal }) => (
       </div>
     </div>
     <div className="flex flex-col flexCenter mt-1">
-      <img title={signal.name} width={50} height={50} src={signal.icon} />
+      <Image title={signal.name} width={50} height={50} src={signal.icon} />
       <p
         title="Pair Name"
         className="font-poppins text-color font-semibold minlg:text-xl text-sm mt-3"

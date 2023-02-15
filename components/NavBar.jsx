@@ -7,13 +7,13 @@ import Link from 'next/link';
 import images from '../assets';
 import Button from './Button';
 
-const ButtonGroup = ({ setActive, router }) => (
+const ButtonGroup = ({ router }) => (
   <Button
     btnName="Login"
     styles="mx-2 rounded-xl"
     handleClick={() => {
-      setActive('');
-      router.push('/');
+      // setActive('');
+      router.push('/admin');
     }}
   />
 );

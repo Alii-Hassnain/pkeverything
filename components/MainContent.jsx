@@ -24,8 +24,6 @@ const MainContent = () => {
     fetchMyPosts();
   }, []);
 
-  console.log(data);
-
   return (
     <div className="flex flex-row mt-5">
       <div className="flex-1 flex-col">
@@ -55,14 +53,14 @@ const postClassNames = {
   EmployeeCorner: '#4c9be0',
   TenderAndContracts: '#e9544d',
 };
-const Posts = (props) => {
-  const { title, description, profileColor, views, type } = props.data;
+const Posts = ({ data, router }) => {
+  const { id, title, description, profileColor, views, type } = data;
 
   return (
     <div
       className="cursor-pointer flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-1 md:m-2 md:p-3"
       onClick={() => {
-        props.router.push('/posts');
+        router.push(`/posts/${id}`);
       }}
     >
       <div className="mr-5 flexCenter">
