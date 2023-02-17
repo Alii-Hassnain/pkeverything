@@ -1,23 +1,6 @@
 // import formidable from 'formidable';
 import Config from '../../lib';
 
-// export const config = {
-//   api: {
-//     bodyParser: false,
-//   },
-// };
-
-// const readResponse = (req) => new Promise((resolve, reject) => {
-//   const form = new formidable.IncomingForm();
-//   form.keepExtensions = true;
-//   form.parse(req, (err, fields, files) => {
-//     if (err) reject(err);
-
-//     // this handle is just returning singles file if multiple than handle multiple files
-//     resolve({ fields, files });
-//   });
-// });
-
 export default async function handler(req, res) {
   let myPost;
   let allPosts;

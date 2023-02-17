@@ -13,7 +13,6 @@
     "@types/formidable": "^2.0.5",
     "axios": "^0.26.0",
     "firebase": "^9.17.1",
-    "formidable": "^2.1.1",
     "framer-motion": "^7.6.18",
     "megajs": "^1.1.1",
     "mongodb": "^5.0.1",
