@@ -7,9 +7,9 @@ import { Navbar, Footer } from '../components';
 import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => {
-  const [user] = useAuthState();
+  // const [user] = useAuthState();
   // This will handle the auth flow with firebase
-
+  console.log('app.js');
   return (
     <GlobalProvider>
       <ThemeProvider attribute="class">
