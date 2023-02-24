@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { storage } from '../../lib/firebase';
 import { Input, Banner, Button } from '../../components';
 
 const CreatePost = () => {
   // console.log(Config);
   const [files, setFiles] = useState(null);
+  const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     title: '',
@@ -32,36 +35,35 @@ const CreatePost = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const uploadFiles = async (file) => {
+    const storageRef = ref(storage, `/files/${file.name}`);
+    const uploadTask = await uploadBytesResumable(storageRef, files);
+    uploadTask.on('state_changed', (snapshot) => {
+      const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+      setProgress(prog);
+    }, (err) => {
+      console.log(err);
+    });
+
+    getDownloadURL(uploadTask.snapshot.ref).then((url) => setForm({ ...form, fileUrl: url }));
+  };
+
   const handleSubmit = async () => {
     try {
       setLoading(true);
       const color = generateRandomColor();
-      setForm({ ...form, profileColor: color, views: 0, tags: form.tags.split(' ') });
-
-      const fileData = new FormData();
-      Object.keys(files).forEach((key) => {
-        fileData.append([key], files[key]);
-      });
-      // testing needs to be done
-      fileData.append('upload_preset', 'bijliwala');
-      const cloudinaryUrl = 'https://api.cloudinary.com/v1_1/de1qop9bf/image/upload';
-      const fileUploaded = await axios.post(cloudinaryUrl, fileData);
-
-      console.log(fileUploaded.data.secureUrl);
-
-      const formData = new FormData();
-      Object.keys(form).forEach((key) => {
-        if (key === 'fileUrl') {
-          formData.append('fileUrl', 'm');
-          return;
-        }
-        formData.append([key], form[key]);
-      });
+      setForm((prev) => ({
+        ...prev,
+        profileColor: color,
+        views: 0,
+        tags: form.tags.split(' '),
+      }));
+      console.log(form);
+      await uploadFiles(files);
 
       console.log('handle submit here');
-      console.log(formData);
 
-      const responce = await axios.post('/api/posts', formData);
+      const responce = await axios.post('/api/posts', form);
       const data = responce;
       console.log(data);
       setLoading(false);
@@ -116,18 +118,15 @@ const CreatePost = () => {
           onChange={handleForm}
           multiple
         />
+        {progress > 0 ? { progress } : null}
       </div>
 
       <Button
         styles="rounded my-4"
         btnName="Submit"
         handleClick={handleSubmit}
+        loading={loading}
       />
-      {loading && (
-        <div className="fixed justify-center w-full h-full bg-transparent">
-          ... Loading
-        </div>
-      )}
     </div>
   );
 };
