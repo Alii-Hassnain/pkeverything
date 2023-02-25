@@ -12,8 +12,10 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'POST':
-      myPost = await db.collection('posts').insertOne(data.fields);
+      data = req.body;
+      myPost = await db.collection('posts').insertOne(data);
       // This will get the data and insert it into db
+      console.log('in posts');
       res.json(myPost);
       break;
     case 'GET':
