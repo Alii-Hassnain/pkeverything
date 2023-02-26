@@ -1,12 +1,16 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const PostWithId = () => {
   const router = useRouter();
   const data = router.query;
   console.log(router.query);
+
+  useEffect(() => {
+
+  });
   return (
     <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
       <p className="font-poppins text-color font-semibold text-xl">
