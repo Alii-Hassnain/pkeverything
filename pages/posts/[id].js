@@ -15,9 +15,21 @@ const PostWithId = () => {
       <p className="font-poppins text-color minlg:text-xl text-sm">
         {data.description}
       </p>
-      <p className="font-poppins text-color minlg:text-xl text-sm">
-        {data.tags}
-      </p>
+      <div className="flex-row flexBetween flex-wrap">
+        {data.tags.map((tag) => (
+          <div
+            key={tag}
+            className=" mr-3 mt-3  border border-color p-1 rounded-lg"
+          >
+            <p
+              title={tag}
+              className="font-poppins text-color minlg:text-xl text-sm"
+            >
+              {tag.toUpperCase()}
+            </p>
+          </div>
+        ))}
+      </div>
       <img src={data.fileUrl} width={500} height={500} />
     </div>
   );
