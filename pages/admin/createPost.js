@@ -9,9 +9,7 @@ const CreatePost = () => {
   // console.log(Config);
   const router = useRouter();
   const [files, setFiles] = useState(null);
-  const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({
     title: '',
     description: '',
@@ -59,7 +57,6 @@ const CreatePost = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(loading);
     const color = generateRandomColor();
     form.profileColor = color;
     form.tags = form.tags.split(' ');
@@ -128,7 +125,7 @@ const CreatePost = () => {
 
         <Button
           styles="rounded my-4"
-          btnName={uploading ? 'Uploading File' : 'Submit'}
+          btnName="Submit"
           handleClick={handleSubmit}
         />
       </form>
