@@ -8,13 +8,14 @@ import { Input, Banner, Button } from '../../components';
 const CreatePost = () => {
   // console.log(Config);
   const router = useRouter();
+  const [submiting, setSubmitting] = useState(false);
   const [files, setFiles] = useState(null);
   const [progress, setProgress] = useState(0);
   const [form, setForm] = useState({
     title: '',
     description: '',
     type: 'Consumer Corner',
-    fileUrl: '',
+    fileUrl: [],
     profileColor: '',
     views: 0,
     tags: '',
@@ -32,43 +33,63 @@ const CreatePost = () => {
   const handleForm = (e) => {
     if (e.target.name === 'fileUrl') {
       // setUploading(true);
-      return setFiles(Array.from(e.target.files)[0]);
+      return setFiles(Array.from(e.target.files));
     }
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const uploadFiles = async (file) => {
-    const storageRef = ref(storage, `/files/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, files);
-    uploadTask.on('state_changed', (snapshot) => {
-      const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-      setProgress(prog);
-    }, (err) => {
-      console.log(err);
-    }, async () => {
-      const url = await getDownloadURL(uploadTask.snapshot.ref);
-      form.fileUrl = url;
-      const responce = await axios.post('/api/posts', form);
-      const { data } = responce;
-      console.log(data);
-      router.push('/');
+  const uploadFiles = async (filearray) => {
+    filearray.forEach((file, index) => {
+      const storageRef = ref(storage, `/files/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+      uploadTask.on(
+        'state_changed',
+        (snapshot) => {
+          const prog = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+          );
+          setProgress(prog);
+        },
+        (err) => {
+          console.log(err);
+        },
+        async () => {
+          const url = await getDownloadURL(uploadTask.snapshot.ref);
+          form.fileUrl.push(url);
+          console.log(index, filearray.length);
+          if (index === filearray.length - 1) {
+            try {
+              const responce = await axios.post('/api/posts', form);
+              const { data } = responce;
+              console.log(data);
+              setSubmitting(false);
+              router.push('/');
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        },
+      );
     });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setSubmitting(true);
     const color = generateRandomColor();
     form.profileColor = color;
     form.tags = form.tags.split(' ');
     if (files) {
       return uploadFiles(files);
     }
+    console.log(files);
     console.log(form);
 
     try {
       const responce = await axios.post('/api/posts', form);
       const { data } = responce;
       console.log(data);
+      setSubmitting(false);
       router.push('/');
     } catch (err) {
       console.log(err);
@@ -120,7 +141,7 @@ const CreatePost = () => {
             onChange={handleForm}
             multiple
           />
-          {progress > 0 ? progress === 100 && 'File Uploaded' : null}
+          {progress > 0 ? 'Uploading File' : progress === 100 && 'File Uploaded'}
         </div>
 
         <Button
@@ -129,6 +150,12 @@ const CreatePost = () => {
           handleClick={handleSubmit}
         />
       </form>
+      {submiting
+        && (
+        <div className="absolute w-full h-full bg-w-grey-2">
+          submitting
+        </div>
+        )}
     </div>
   );
 };

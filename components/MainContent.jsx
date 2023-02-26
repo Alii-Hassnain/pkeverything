@@ -54,13 +54,16 @@ const postClassNames = {
   TenderAndContracts: '#e9544d',
 };
 const Posts = ({ data, router }) => {
-  const { id, title, description, profileColor, views, type } = data;
+  const { _id, title, description, profileColor, views, type } = data;
 
   return (
     <div
       className="cursor-pointer flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-1 md:m-2 md:p-3"
       onClick={() => {
-        router.push(`/posts/${id}`);
+        router.push(
+          { pathname: `/posts/${_id}`, query: data },
+          `/posts/${_id}`,
+        );
       }}
     >
       <div className="mr-5 flexCenter">
