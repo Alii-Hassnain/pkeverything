@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 
 const PostWithId = () => {
   const router = useRouter();
-  const data = router.query;
+  const { title, description, tags, fileUrl } = router.query;
   console.log(router.query);
 
   useEffect(() => {
@@ -14,13 +14,13 @@ const PostWithId = () => {
   return (
     <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
       <p className="font-poppins text-color font-semibold text-xl">
-        {data.title}
+        {title}
       </p>
       <p className="font-poppins text-color minlg:text-xl text-sm">
-        {data.description}
+        {description}
       </p>
       <div className="flex-row flexBetween flex-wrap">
-        {data.tags.map((tag) => (
+        {tags.map((tag) => (
           <div
             key={tag}
             className=" mr-3 mt-3  border border-color p-1 rounded-lg"
@@ -34,7 +34,7 @@ const PostWithId = () => {
           </div>
         ))}
       </div>
-      <img src={data.fileUrl} width={500} height={500} />
+      <img src={fileUrl} width={500} height={500} />
     </div>
   );
 };

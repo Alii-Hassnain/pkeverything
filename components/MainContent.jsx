@@ -58,7 +58,7 @@ const Posts = ({ data, router }) => {
 
   return (
     <div
-      className="cursor-pointer flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-1 md:m-2 md:p-3"
+      className=" cursor-pointer flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-1 md:m-2 md:p-3"
       onClick={() => {
         router.push(
           { pathname: `/posts/${_id}`, query: data },
@@ -84,18 +84,20 @@ const Posts = ({ data, router }) => {
           </div>
         </div>
       </div>
-      <div
-        className="flexCenter  border border-color p-1 rounded-lg"
-        style={{ backgroundColor: postClassNames[type.split(' ').join('')] }}
-      >
-        <p className="font-poppins text-w-black-3 text-center text-xs minlg:text-sm">
-          {type}
-        </p>
-      </div>
-      <div className="my-2 flex justify-center">
-        <div className="px-5 flexCenter flex-col">
-          <i className="fa fa-eye fa-grey" />
-          <p className="text-color">{views}</p>
+      <div className="flexCenter">
+        <div
+          className="border border-color p-1 rounded-lg"
+          style={{ backgroundColor: postClassNames[type.split(' ').join('')] }}
+        >
+          <p className="font-poppins text-w-black-3 text-center text-[.55rem] minlg:text-xs">
+            {type}
+          </p>
+        </div>
+        <div className="my-2 flex justify-center">
+          <div className="px-5 flexCenter flex-col">
+            <i className="fa fa-eye fa-grey" />
+            <p className="text-color">{views}</p>
+          </div>
         </div>
       </div>
     </div>
