@@ -7,6 +7,10 @@ const PostWithId = () => {
   const router = useRouter();
   const { title, description, tags, fileUrl } = router.query;
   console.log(router.query);
+  console.log(typeof (tags));
+  if (tags !== []) {
+    Array.from(tags);
+  }
 
   useEffect(() => {
 
