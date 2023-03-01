@@ -13,7 +13,7 @@ const PostWithId = () => {
   }
 
   useEffect(() => {
-
+    main();
   });
   return (
     <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
