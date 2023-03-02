@@ -13,7 +13,7 @@ const PostWithId = () => {
   }
 
   useEffect(() => {
-    main();
+
   });
   return (
     <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
@@ -38,7 +38,13 @@ const PostWithId = () => {
           </div>
         ))}
       </div>
-      <img src={fileUrl} width={500} height={500} />
+      <div className="p-2 m-2 ">
+        <p>
+          name of the file
+        </p>
+        <Image />
+
+      </div>
     </div>
   );
 };
