@@ -9,7 +9,6 @@ const Posts = () => {
   const { fetchPosts } = useContext(GlobalContext);
 
   useEffect(() => {
-    //fetch posts from database
     fetchPosts().then((d) => {
       setData(d);
     });

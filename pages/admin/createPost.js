@@ -55,7 +55,11 @@ const CreatePost = () => {
         },
         async () => {
           const url = await getDownloadURL(uploadTask.snapshot.ref);
-          form.fileUrl.push(url);
+          const filedata = {
+            fileName: uploadTask.snapshot.metadata.name,
+            url,
+          };
+          form.fileUrl.push(filedata);
           console.log(index, filearray.length);
           if (index === filearray.length - 1) {
             try {
