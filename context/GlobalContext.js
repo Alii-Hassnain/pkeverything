@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import api from '../lib/api';
 import { auth, googleAuthProvider } from '../lib/firebase';
 
 export const GlobalContext = React.createContext();
@@ -52,9 +52,10 @@ export const GlobalProvider = ({ children }) => {
 
   const fetchPosts = async (id) => {
     if (id) {
+      console.log(api.baseURL);
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/posts/${id}`,
+        const response = await api.get(
+          `api/posts/${id}`,
         );
         console.log(response);
         return response.data;
@@ -62,7 +63,7 @@ export const GlobalProvider = ({ children }) => {
         console.log(err);
       }
     }
-    const response = await axios.get('api/posts');
+    const response = await api.get('api/posts');
     return response.data;
   };
 

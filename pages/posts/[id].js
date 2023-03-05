@@ -46,7 +46,7 @@ const PostWithId = () => {
           </Link>
         </div>
       </div>
-      {tags && <p className="font-poppins text-color font-semibold text-xl mt-10">Tags</p>}
+      {tags.length > 0 && <p className="font-poppins text-color font-semibold text-xl mt-10">Tags</p>}
       <div className="flex-row flexBetween flex-wrap">
         {typeof tags === 'string' ? (
           <div
