@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 
 const PostWithId = () => {
   const router = useRouter();
-  const { title, description, tags, fileUrl } = router.query;
+  const { title, description, tags, fileUrl = 'null' } = router.query;
   console.log(router.query);
   console.log(typeof (tags));
   if (tags !== []) {
@@ -42,7 +42,7 @@ const PostWithId = () => {
         <p>
           name of the file
         </p>
-        <Image />
+        <p>{fileUrl}</p>
 
       </div>
     </div>
