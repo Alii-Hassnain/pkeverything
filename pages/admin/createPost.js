@@ -156,7 +156,7 @@ const CreatePost = () => {
       </form>
       {submiting
         && (
-        <div className="absolute w-full h-full bg-w-grey-2">
+        <div className="fixed top-0 w-full h-full bg-w-grey-2">
           submitting
         </div>
         )}
