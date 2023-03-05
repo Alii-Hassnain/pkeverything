@@ -52,8 +52,15 @@ export const GlobalProvider = ({ children }) => {
 
   const fetchPosts = async (id) => {
     if (id) {
-      const response = await axios.get(`api/posts/${id}`);
-      return response.data;
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/api/posts/${id}`,
+        );
+        console.log(response);
+        return response.data;
+      } catch (err) {
+        console.log(err);
+      }
     }
     const response = await axios.get('api/posts');
     return response.data;
