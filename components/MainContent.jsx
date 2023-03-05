@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { categories } from '../data';
+import { GlobalContext } from '../context/GlobalContext';
 
 const categoryItem = (cat) => (
   <div className="flex minlg:w-557 p-1 my-1  rounded-md  hover:text-secondary text-color">
@@ -14,15 +14,16 @@ const categoryItem = (cat) => (
 
 const MainContent = () => {
   const [data, setData] = useState([]);
+  const { fetchPosts } = useContext(GlobalContext);
   const router = useRouter();
 
   async function fetchMyPosts() {
-    const response = await axios.get('api/posts');
-    setData(response.data);
+    const res = await fetchPosts();
+    setData(res);
   }
   useEffect(() => {
     fetchMyPosts();
-  }, []);
+  }, [fetchPosts]);
 
   return (
     <div className="flex flex-row mt-5">
@@ -61,7 +62,6 @@ const Posts = ({ data, router }) => {
       className=" cursor-pointer flexBetween w-full minlg:min-2-240 dark:hover:bg-w-black-1 hover:bg-w-grey-1 p-4 m-1 md:m-2 md:p-3"
       onClick={() => {
         router.push(
-          { pathname: `/posts/${_id}`, query: data },
           `/posts/${_id}`,
         );
       }}
