@@ -24,7 +24,7 @@ const PostWithId = () => {
         {description}
       </p>
       <div className="flex-row flexBetween flex-wrap">
-        {tags.map((tag) => (
+        {typeof (tags) === 'string' ? tags : tags.map((tag) => (
           <div
             key={tag}
             className=" mr-3 mt-3  border border-color p-1 rounded-lg"
