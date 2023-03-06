@@ -5,6 +5,17 @@ import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../../context/GlobalContext';
 
+// export async function getServerSideProps() {
+//   const response = await api.get('api/posts');
+//   const { data } = response;
+//   console.log(data);
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
+
 const PostWithId = () => {
   const router = useRouter();
   const { fetchPosts } = useContext(GlobalContext);
