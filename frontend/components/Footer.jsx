@@ -14,7 +14,10 @@ const FooterLinks = ({ heading, items }) => (
         key={index}
         className="font-poppins text-color font-normal text-base cursor-pointer dark:hover:text-secondary hover:text-primary my-3  transition-all ease-in-out"
       >
+        <Link href={item.link}>
         {item}
+        </Link>
+        
       </p>
     ))}
   </div>
@@ -51,20 +54,20 @@ const Footer = () => {
           <FooterLinks
             heading="Services"
             items={[
-              'Consumer Corner',
-              'Employer Corner',
-              'Tender & Contracts',
-              'Important Links',
+              {name:'Consumer Corner', link:"/"},
+              {name:'Employer Corner', link:"/"},
+              {name:'Student Corner', link:"/"},
+              {name:'Tender and Contracts', link:"/"}
             ]}
           />
 
           <FooterLinks
             heading="Support"
             items={[
-              'Terms of Service',
-              'Legal',
-              'Privacy Policy',
-              'Contact Us',
+              {name:'Term of Service', link:"/"},
+              {name:'Privacy Policy', link:"/"},
+              {name:'Legal', link:"/"},
+              {name:'Contact Us', link:"/"}
             ]}
           />
         </div>
@@ -72,14 +75,13 @@ const Footer = () => {
           <FooterLinks
             heading="Important Links"
             items={[
-              'NEPRA',
-              'MINISTRY OF ENERGY',
-              'CPPA-G',
-              'PPMC',
-              'DISCOS',
-              'K-ELECTRIC',
-              'AEDB',
-              'NEECA',
+              {name:'Ministry of Energy', link:"https://power.gov.pk/"},
+              {name:'NEPRA', link:"/"},
+              {name:'PPMC', link:"/"},
+              {name:'K-Electric', link:"/"},
+              {name:'AEDB', link:"/"},
+              {name:'CPPA-G', link:"/"},
+              {name:'NEECA', link:"/"}
             ]}
           />
         </div>
