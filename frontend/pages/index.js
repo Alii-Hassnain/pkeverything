@@ -41,7 +41,7 @@ const Home = () => {
     <div className="flex justify-center sm:px-4 p-12 py-5">
       <div className="w-full minmd:w-4/5">
         <Banner
-          name="Find Everthing You Need About Your Electricity"
+          name="Find Everything You Need To Know About Electricity"
           substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
           styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded-3xl"
         />

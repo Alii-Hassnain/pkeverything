@@ -42,7 +42,7 @@ const Navbar = () => {
             onClick={() => {}}
           >
             <Image src={images.logo02} width={32} height={32} alt="logo" />
-            <p className="text-color font-semibold text-lg ml-1">BijliWala</p>
+            <p className="text-color font-semibold text-lg ml-1">Bijle Ghar</p>
           </div>
         </Link>
         <Link href="/">
