@@ -8,7 +8,7 @@ export const frequentActions = {
 export const categories = {
   ConsumerCorner: ['fas fa-users fa-green', 'Consumer Corner'],
   EmployeesCorner: ['fas fa-briefcase fa-blue', 'Employees Corner'],
-  StudentCorner:['fa-duotone fa-graduation-cap fa-blue',"Student Corner"],
+  StudentCorner:['fas fa-graduation-cap fa-purple',"Student Corner"],
   TenderAndContracts: ['fas fa-file-contract fa-red', 'Tender And Contracts'],
 };
 
