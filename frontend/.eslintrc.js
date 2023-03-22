@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended', 'next/core-web-vitals',
+    'plugin:react/recommended', 'next/core-web-vitals','next/babel',
     'airbnb',
   ],
   overrides: [
