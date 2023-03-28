@@ -88,6 +88,9 @@ button:hover{
   left: 2px;
   transition: transform 0.2s linear;
 }
+.animated{
+  transform: none;
+}
 
 /* Target the element after the label */
 .checkbox:checked+.label .ball{
