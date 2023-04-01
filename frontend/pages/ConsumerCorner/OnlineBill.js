@@ -81,14 +81,14 @@ const OnlineBill = () => {
           ))}
         </div>
         <p className=" mt-2 font-poppins text-color minlg:text-xl text-sm">
-          To Find the Bill information Enter the Consumer ID mentioned on your
+          To Find the Bill information Enter the Reference Number mentioned on your
           bill
         </p>
         <div className="">
           <Input
-            title="ConsumerID"
+            title="Reference Number"
             type="number"
-            placeholder="Enter Your Consumer ID"
+            placeholder="Enter Your Reference Number"
             handleClick={(e) => {
               setConsumerId(e.target.value);
             }}
