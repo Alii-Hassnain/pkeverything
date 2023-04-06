@@ -31,7 +31,9 @@ const Footer = () => {
         <div className="flexStart flex-1 flex-col">
           <div className="flexCenter cursor-pointer">
             <Image src={images.logo02} width={32} height={32} alt="logo" />
-            <p className="heading-color font-semibold text-lg ml-1">BIJLE GHAR</p>
+            <p className="heading-color font-semibold text-lg ml-1">
+              BIJLE GHAR
+            </p>
           </div>
           <p className="font-poppins heading-color font-semibold text-base mt-6">
             Subscribe The News letter and Get The Latest News and notification
@@ -54,20 +56,20 @@ const Footer = () => {
           <FooterLinks
             heading="Services"
             items={[
-              {name:'Consumer Corner', link:"/"},
-              {name:'Employer Corner', link:"/"},
-              {name:'Student Corner', link:"/"},
-              {name:'Tender and Contracts', link:"/"}
+              { name: "Consumer Corner", link: "/" },
+              { name: "Employer Corner", link: "/" },
+              { name: "Student Corner", link: "/" },
+              { name: "Tender and Contracts", link: "/" },
             ]}
           />
 
           <FooterLinks
             heading="Support"
             items={[
-              {name:'Term of Service', link:"/"},
-              {name:'Privacy Policy', link:"/"},
-              {name:'Legal', link:"/"},
-              {name:'Contact Us', link:"/"}
+              { name: "Term of Service", link: "/" },
+              { name: "Privacy Policy", link: "/" },
+              { name: "Legal", link: "/" },
+              { name: "Contact Us", link: "/" },
             ]}
           />
         </div>
@@ -75,13 +77,13 @@ const Footer = () => {
           <FooterLinks
             heading="Important Links"
             items={[
-              {name:'Ministry of Energy', link:"https://power.gov.pk/"},
-              {name:'NEPRA', link:"/"},
-              {name:'PPMC', link:"/"},
-              {name:'K-Electric', link:"/"},
-              {name:'AEDB', link:"/"},
-              {name:'CPPA-G', link:"/"},
-              {name:'NEECA', link:"/"}
+              { name: "Ministry of Energy", link: "https://power.gov.pk/" },
+              { name: "NEPRA", link: "https://www.nepra.org.pk/" },
+              { name: "DISCOs", link: "/" },
+              { name: "K-Electric", link: "https://www.ke.com.pk/" },
+              { name: "AEDB", link: "https://www.aedb.org/" },
+              { name: "CPPA-G", link: "https://www.cppa.gov.pk/" },
+              { name: "NEECA", link: "https://neeca.gov.pk/" },
             ]}
           />
         </div>
@@ -103,7 +105,7 @@ const Footer = () => {
                   src={image}
                   width={20}
                   alt="social"
-                  className={theme === 'light' && 'filter invert'}
+                  className={theme === "light" && "filter invert"}
                 />
               </div>
             ))}
