@@ -5,6 +5,9 @@ export const frequentActions = {
   BillTarifs: ['Taxes & Tarifs', 'fas fa-file-invoice-dollar fa-2xl', '/ConsumerCorner/BillTarifs'],
 };
 
+//fas fa-user is a font awesome icon
+// fa-green is a css class
+// Consumer Corner is the text to be displayed
 export const categories = {
   ConsumerCorner: ['fas fa-users fa-green', 'Consumer Corner'],
   EmployeesCorner: ['fas fa-briefcase fa-blue', 'Employees Corner'],
