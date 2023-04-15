@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Button, Input, RelatedContent, Banner } from '../../components';
+import { Button, Input, RelatedContent, Banner } from '../components';
 
 // const domesticSettings = {
 //   metertype: { 'Single Phase': 1,
