@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  strapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '1337:1337'
+    depends_on:
+      - db
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: bijlighar 
+      DATABASE_USERNAME: bijlighar
+      DATABASE_PASSWORD: bijlighar123
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: bijlighar
+      POSTGRES_PASSWORD: bijlighar123
+      POSTGRES_DB: bijlighar
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: alifaizanahmad@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: bijlighar123
+    ports: 
+      - "5050:80"
+

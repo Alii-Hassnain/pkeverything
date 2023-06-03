@@ -1,5 +1,5 @@
 {
-  "name": "admin",
+  "name": "pk-admin",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -9,18 +9,18 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.7.1",
-    "@strapi/plugin-users-permissions": "4.7.1",
-    "@strapi/plugin-i18n": "4.7.1",
-    "better-sqlite3": "8.0.1"
+    "@strapi/plugin-i18n": "4.10.7",
+    "@strapi/plugin-users-permissions": "4.10.7",
+    "@strapi/strapi": "4.10.7",
+    "better-sqlite3": "8.0.1",
+    "pg": "^8.11.0"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "4bb50707-f223-4c77-9f52-dae0a337cfec"
+    "uuid": "eaecaeb7-c012-41fb-b482-feab0b399505"
   },
   "engines": {
     "node": ">=14.19.1 <=18.x.x",
