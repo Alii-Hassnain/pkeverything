@@ -17,7 +17,7 @@ COPY . .
 EXPOSE 1337
 
 # Set the environment variables
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 ENV HOST=0.0.0.0
 
 # Build the Strapi admin panel
