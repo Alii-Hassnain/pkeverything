@@ -1,7 +1,9 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Banner from '../components/Banner';
 
 const NewConnectionApplication = () => {
+  const router = useRouter();
   <div>
     <Banner
       name={router.pathname.split("/")[2]}
