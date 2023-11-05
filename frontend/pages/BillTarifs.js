@@ -1,5 +1,5 @@
 import React from 'react';
-
+import  Banner  from '../components/Banner';
 const BillTarifs = () => (
   <div className="flexCenter">
       <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
