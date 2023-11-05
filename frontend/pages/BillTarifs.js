@@ -1,6 +1,8 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import  Banner  from '../components/Banner';
-const BillTarifs = () => (
+const BillTarifs = () => {
+  const router = useRouter();
   <div className="flexCenter">
       <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
         <Banner
@@ -13,6 +15,6 @@ const BillTarifs = () => (
         </p>
       </div>
   </div>
-        )
+  }
 
 export default BillTarifs;

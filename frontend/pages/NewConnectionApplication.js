@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '../components/Banner';
 
-const NewConnectionApplication = () => (
+const NewConnectionApplication = () => {
   <div>
     <Banner
       name={router.pathname.split("/")[2]}
@@ -12,6 +12,6 @@ const NewConnectionApplication = () => (
       Here you can find Bills of all Electric companies of Pakistan
     </p>
   </div>
-);
+};
 
 export default NewConnectionApplication;
