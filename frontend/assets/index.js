@@ -11,6 +11,7 @@ import telegram from './telegram.png';
 import twitter from './twitter.png';
 import upload from './upload.png';
 
+import mainbanner from './mainbanner.jpg';
 import right from './right.png';
 import left from './left.png';
 import loader from './loader.gif';
@@ -19,6 +20,7 @@ import arrow from './arrow.png';
 export default {
   heartOutline,
   heart,
+  mainbanner,
 
   search,
   tick,

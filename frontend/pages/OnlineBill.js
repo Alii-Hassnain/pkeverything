@@ -65,7 +65,7 @@ const OnlineBill = () => {
           substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
           styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded"
         />
-        <p className="font-poppins text-color minlg:text-xl text-sm">
+        <p className="font-poppins text-color minlg:text-xl text-lg">
           Here you can find Bills of all Electric companies of Pakistan
         </p>
         <div className="flex-row flexBetween flex-wrap">
@@ -80,7 +80,7 @@ const OnlineBill = () => {
             </div>
           ))}
         </div>
-        <p className=" mt-2 font-poppins text-color minlg:text-xl text-sm">
+        <p className=" mt-2 font-poppins text-color minlg:text-xl text-lg">
           To Find the Bill information Enter the Reference Number mentioned on your
           bill
         </p>

@@ -15,3 +15,7 @@ export const categories = {
   TenderAndContracts: ['fas fa-file-contract fa-red', 'Tender And Contracts'],
 };
 
+export const animations ={
+  hover: 'transform hover:scale-105 transition-transform duration-200',
+}
+

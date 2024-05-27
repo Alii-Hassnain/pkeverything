@@ -40,11 +40,10 @@ const Home = () => {
   return (
     <div className="flex justify-center sm:px-4 p-12 py-5">
       <div className="w-full minmd:w-4/5">
-        <Banner
-          name="Find Everything You Need To Know About Electricity"
-          substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
-          styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded-3xl"
+        <Image src={images.mainbanner}
+        
         />
+        
         <div>
           <div
             className="relative flex-1 justify-center max-w-full flex mt-1"
@@ -84,19 +83,23 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* SignalCard */}
+        <Banner
+          name="Everything You Need To Know About Electricity"
+          substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
+          styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded-3xl"
+        />
         <div className="mt-10 sm:mt-5">
           <div className="flexBetween  xs:mx-0 minlg:mx-8 sm:flex-col sm:items-start">
             <div className="flex-row flexBetween sm:mb-2 sm:w-full ">
               <div className=" bg-w-grey-1 dark:bg-w-black-1 p-2 pt-1 rounded-md">
                 <p className="text-w-grey-2">Posts</p>
               </div>
-              <div className=" ml-5 ">
+              {/* <div className=" ml-5 ">
                 <select className="dark:bg-w-black-1 bg-w-grey-1 border border-color rounded-lg w-full outline-none font-poppins dark:text-w-grey-1 text-w-grey-2 text-base p-1.5">
                   <option value="1">Latest</option>
                   <option value="1">Most Viewed</option>
                 </select>
-              </div>
+              </div> */}
             </div>
             <div className="flexBetween minlg:w-557  bg-color border border-color rounded-md  bg-w-grey-1 dark:bg-w-black-1">
               <input

@@ -70,15 +70,15 @@ const Navbar = () => {
             <div className="w-3 h-3 absolute bg-white rounded-full ball" />
           </label>
         </div>
-        <div className="md:hidden flex">
+        {/* <div className="md:hidden flex"> */}
           {/* <MenuItems active={active} setActive={setActive} /> */}
-          <div className="w-9 p-2 flexCenter ml-3 bg-w-grey-1 dark:bg-w-dark  rounded-3xl">
+          {/* <div className="w-9 p-2 flexCenter ml-3 bg-w-grey-1 dark:bg-w-dark  rounded-3xl">
             <i className="fas fa-bell" />
           </div>
           <div className="ml-4">
             <ButtonGroup router={router} />
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="hidden md:flex ml-2">
