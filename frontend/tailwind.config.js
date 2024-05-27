@@ -5,6 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class', // or 'media' or 'class'
+   purge: {
+    options: {
+      safelist: ['transform', 'hover:scale-105', 'transition-transform', 'duration-200'],
+    },
+  },
   theme: {
     extend: {
       colors: {
