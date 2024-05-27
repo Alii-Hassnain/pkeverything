@@ -4,7 +4,7 @@ import { categories } from '../data';
 import { GlobalContext } from '../context/GlobalContext';
 import { animations } from '../data';
 const categoryItem = (cat) => (
-  <div className={`flex minlg:w-557 p-1 my-1  rounded-md  hover:text-secondary text-color${animations.hover}`}>
+  <div className={`flex minlg:w-557 p-1 my-1  rounded-md  hover:text-secondary text-color ${animations.hover} cursor-pointer`}>
     <div>
       <i className={categories[cat][0]} />
     </div>
