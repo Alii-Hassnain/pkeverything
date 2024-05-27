@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button, Input, RelatedContent, Banner } from '../components';
+import Head from 'next/head';
 
 const OnlineBill = () => {
   const [ConsumerId, setConsumerId] = useState(0);
@@ -58,10 +59,16 @@ const OnlineBill = () => {
   }
   // name={window.location.pathname.split('/')[2]}
   return (
+    <>
+    <Head>
+      <meta name="keywords" content="iescobill, mepcobill, pescobill, hescobill, sepcobill, qescobill, gepcobill, fescobill, tescobill"></meta>
+      <meta name="description" content="Consumer electricity bills"></meta>
+      <title>Online Bill</title>
+    </Head>
     <div className="flexCenter">
       <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
         <Banner
-          name={router.pathname.split('/')[2]}
+          name={router.pathname.split('/')[1]}
           substyles="md:text-3xl sm:text-xl sx:text-xl text-left"
           styles="justify-start mb-3 h-50 p-12 xs:p-4 md:h-40 rounded"
         />
@@ -107,6 +114,7 @@ const OnlineBill = () => {
         <RelatedContent />
       </div>
     </div>
+    </>
   );
 };
 export default OnlineBill;
