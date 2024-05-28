@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from 'next-themes';
 // import { useAuthState } from 'react-firebase-hooks/auth';
 import { GlobalProvider } from '../context/GlobalContext';
@@ -24,6 +25,7 @@ const MyApp = ({ Component, pageProps }) => {
           src="https://kit.fontawesome.com/8a40a6fca5.js"
           crossOrigin="anonymous"
         />
+        <Analytics />
       </ThemeProvider>
     </GlobalProvider>
   );
