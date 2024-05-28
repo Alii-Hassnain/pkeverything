@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Banner, CreatorCard, MainContent } from '../components';
 import images from '../assets';
 import { frequentActions } from '../data';
+import Head from 'next/head';
 
 const Home = () => {
   const [hideButtons, setHideButtons] = useState(false);
@@ -38,6 +39,16 @@ const Home = () => {
   });
 
   return (
+    <>
+    <Head>
+      <title>Bijleghar - Your Electricity Companion</title>
+      <meta name="description" content="Bijleghar is your one-stop solution for all electricity-related needs. Access bills, get updates, and more."></meta>
+      <meta name="keywords" content="Bijleghar, Electricity, Bills, Updates, Pakistan"></meta>
+      <meta name="robots" content="index, follow"></meta>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+      <meta name="language" content="English"></meta>
+      <meta name="author" content="Bijleghar"></meta>
+    </Head>
     <div className="flex justify-center sm:px-4 p-12 py-5">
       <div className="w-full minmd:w-4/5">
         <Image src={images.mainbanner}
@@ -114,6 +125,7 @@ const Home = () => {
         <MainContent />
       </div>
     </div>
+    </>
   );
 };
 export default Home;

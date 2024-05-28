@@ -61,9 +61,14 @@ const OnlineBill = () => {
   return (
     <>
     <Head>
+      <title>Online Electricity Bills - All Electric Companies of Pakistan</title>
       <meta name="keywords" content="iescobill, mepcobill, pescobill, hescobill, sepcobill, qescobill, gepcobill, fescobill, tescobill"></meta>
-      <meta name="description" content="Consumer electricity bills"></meta>
-      <title>Online Bill</title>
+      <meta name="description" content="Access and view online electricity bills of all electric companies in Pakistan. Easy, quick, and reliable."></meta>
+      <meta name="keywords" content="Online Electricity Bill, IESCO Bill, MEPCO Bill, PESCO Bill, HESCO Bill, SEPCO Bill, QESCO Bill, GEPCO Bill, FESCO Bill, TESCO Bill, Pakistan Electricity"></meta>
+      <meta name="robots" content="index, follow"></meta>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+      <meta name="language" content="English"></meta>
+      <meta name="author" content="bijleghar"></meta>
     </Head>
     <div className="flexCenter">
       <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
