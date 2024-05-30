@@ -1,75 +1,20 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { Button, Input, RelatedContent, Banner } from '../components';
-import Head from 'next/head';
+import { companies,generateBillUrl } from 'utils/billUrl';
 
-const OnlineBill = () => {
+export const OnlineBill = () => {
   const [ConsumerId, setConsumerId] = useState(0);
   const router = useRouter();
+  
+  const handleClick = () => {
+    const billUrl = generateBillUrl(ConsumerId);
+    window.location.href = billUrl;
 
-  const companies = {
-    11: 'lesco',
-    12: 'gepco',
-    13: 'fesco',
-    14: 'iesco',
-    15: 'mepco',
-    26: 'pesco',
-    37: 'hesco',
-    38: 'sepco',
-    48: 'qesco',
-  };
-
-  function calculate(ref) {
-    let type = 'general';
-    let company = 'fesco';
-    let url = '';
-    const types = {
-      0: 'industrial',
-      1: 'general',
-    };
-    company = ref.replace(' ', '').slice(2, 4);
-    type = ref.slice(0, 2);
-
-    if (type > 20) {
-      type = types['0'];
-    } else {
-      type = types['1'];
-    }
-    if (company === '11') {
-      // specific for lesco
-      url = `http://www.lesco.gov.pk:36247/BillNew.aspx?BatchNo=${ref.slice(
-        0,
-        2,
-      )}&SubDiv=${ref.slice(2, 8).trim()}&RefNo=${ref
-        .slice(8, 16)
-        .trim()}&RU=U&Exec=941N7&nCtID=`;
-    } else if (
-      company === '26'
-      || company === '37'
-      || company === '38'
-      || company === '48'
-    ) {
-      url = `https://bill.pitc.com.pk/${companies[company]}bill/${type}?refno=${ref}`;
-    } else {
-      url = `https://bill.pitc.com.pk/${companies[company]}bill/${type}/${ref}`;
-    }
-    console.log(ConsumerId);
-    window.location.href = url;
   }
+
   // name={window.location.pathname.split('/')[2]}
   return (
-    <>
-    <Head>
-      <title>Online Electricity Bills - All Electric Companies of Pakistan</title>
-      <meta name="keywords" content="iescobill, mepcobill, pescobill, hescobill, sepcobill, qescobill, gepcobill, fescobill, tescobill"></meta>
-      <meta name="description" content="Access and view online electricity bills of all electric companies in Pakistan. Easy, quick, and reliable."></meta>
-      <meta name="keywords" content="Online Electricity Bill, IESCO Bill, MEPCO Bill, PESCO Bill, HESCO Bill, SEPCO Bill, QESCO Bill, GEPCO Bill, FESCO Bill, TESCO Bill, Pakistan Electricity"></meta>
-      <meta name="robots" content="index, follow"></meta>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-      <meta name="language" content="English"></meta>
-      <meta name="author" content="bijleghar"></meta>
-    </Head>
     <div className="flexCenter">
       <div className="sm:px-4 p-12 py-5 w-full minmd:w-4/5 minmd:">
         <Banner
@@ -82,44 +27,23 @@ const OnlineBill = () => {
         </p>
         <div className="flex-row flexBetween flex-wrap">
           {Object.keys(companies).map((key) => (
-            <div key={companies[key]} className=" mr-3 mt-3  border border-color p-1 rounded-lg">
+            <a key={companies[key]} className=" mr-3 mt-3  border border-color p-1 rounded-lg"  href={`/${companies[key]}bill`}>
               <p
                 title={companies[key]}
                 className="font-poppins text-color minlg:text-xl text-sm"
               >
                 {companies[key].toUpperCase()}
               </p>
-            </div>
+            </a>
           ))}
         </div>
         <p className=" mt-2 font-poppins text-color minlg:text-xl text-lg">
           To Find the Bill information Enter the Reference Number mentioned on your
           bill
         </p>
-        <div className="">
-          <Input
-            title="Reference Number"
-            type="number"
-            placeholder="Enter Your Reference Number"
-            handleClick={(e) => {
-              setConsumerId(e.target.value);
-            }}
-          />
-        </div>
-        <div className="flex-row flexBetween">
-          <Button
-            styles="rounded my-4"
-            btnName="Submit"
-            handleClick={() => calculate(ConsumerId)}
-          />
-          <Link href="/" className="text-xs text-color minlg:text-xl ">
-            Cant Find Your Bill ?
-          </Link>
-        </div>
         <RelatedContent />
       </div>
     </div>
-    </>
   );
 };
 export default OnlineBill;
