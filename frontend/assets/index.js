@@ -17,6 +17,18 @@ import left from './left.png';
 import loader from './loader.gif';
 import arrow from './arrow.png';
 
+import fesco from './fesco.png';
+import gepco from './gepco.png';
+import lesco from './lesco.png';
+import iesco from './iesco.png';
+import mepco from './mepco.png';
+import pesco from './pesco.png';
+import sepco from './sepco.png';
+import hesco from './hesco.png';
+import qesco from './qesco.png';
+
+import refimage from './refimage.png';
+
 export default {
   heartOutline,
   heart,
@@ -36,4 +48,15 @@ export default {
   left,
   loader,
   arrow,
+
+  fesco,
+  gepco,
+  lesco,
+  iesco,
+  mepco,
+  pesco,
+  sepco,
+  hesco,
+  qesco,
+  refimage,
 };

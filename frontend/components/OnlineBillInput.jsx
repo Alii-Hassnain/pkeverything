@@ -2,7 +2,8 @@ import { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import Link from 'next/link';
-
+import Image from 'next/image';
+import images from "../assets";
 import { generateBillUrl } from "utils/billUrl";
 
 const OnlineBillInput = () => {
@@ -20,11 +21,14 @@ const OnlineBillInput = () => {
   return (
     <>
      <div className="">
+      <div className="flex justify-center">
+        <Image src={images.refimage} alt="refrence number image" width={500} height={500} />
+      </div>
           <Input
             title="Reference Number"
             type="number"
 
-            placeholder="Enter Your Reference Number"
+            placeholder="Enter Your 14 digit Reference Number"
             handleClick={(e) => {
               setConsumerId(e.target.value);
             }}
