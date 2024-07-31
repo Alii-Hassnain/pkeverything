@@ -12,7 +12,7 @@ const FescoBill = () => {
   
   const handleClick = () => {
     if(!ConsumerId){
-        alert("Please Enter a Reference Number");
+        alert("Please Enter a Reference Numbr");
         return;
     }
     const billUrl = generateBillUrl(ConsumerId);
